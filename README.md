@@ -20,7 +20,7 @@
 
 --(optional) os :: good import to have when dealing with file I/O processes.
 
---(optional) re :: good import to have when need to use regex pattern matching
+--(optional) re :: good import to have when need to use regex pattern matching.
 
 #OVERVIEW
 A minimal GUI application that let's you select a CSV or TXT file for processing and select an output directory for an output file.
