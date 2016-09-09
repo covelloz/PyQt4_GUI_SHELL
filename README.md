@@ -8,7 +8,7 @@ A minimal GUI application that let's you select a CSV or TXT file for processing
 Great for implementing a heavy data-processing process. 
 The process gets threaded and implements a progress bar interface to keep track.
 
-#REQUIREED IMPORTS
+#REQUIRED IMPORTS
 --PyQt4 :: requried for GUI components, signals/slots, threads, events, etc.
 
 --pandas :: required to read in CSV or TXT.
