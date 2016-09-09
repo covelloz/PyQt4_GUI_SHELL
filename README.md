@@ -5,7 +5,7 @@
 
 #OVERVIEW
 A minimal GUI application that let's you select a CSV or TXT file for processing and select an output directory for an output file.
-Great for implementing a heavy data-processing processes. 
+Great for implementing a heavy data-processing process. 
 The process gets threaded and implements a progress bar interface to keep track.
 
 Import data processing packages as necessary:
