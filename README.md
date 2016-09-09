@@ -24,6 +24,7 @@ For example, if you have process that uses loops, you can nest it as per the bel
 
 			#--------------------------------------------------------------------------------#
 			#THIS IS A SAMPLE --> N = 3, i.e. progressBar.maxValue(3) in theShell.runReport()
+			#Using test_file.txt (provided with source)
 			
 			print("Testing the program")
 			
