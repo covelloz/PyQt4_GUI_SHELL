@@ -4,15 +4,21 @@
 -Written using PyQt4 libraries & designed using QtDesigner.
 #REQUIREED IMPORTS
 -PyQt4 -- requried for GUI components, signals/slots, threads, events, etc.
+
 -pandas -- required to read in CSV or TXT.
 (I use pandas a lot; if you want, you can avoid this import and adapt code to use readLines, csv.reader, etc)
+
 -time -- required for SAMPLE code in worker.run()
 
 #OPTIONAL/SUGGESTED IMPORTS
 -(optional) numpy -- always a good import to have when dealing with data
+
 -(optional) xlsxwriter	-- good import to have if you need to write out an Excel file.
+
 -(optional) sys -- good import to have when dealing with file I/O processes
+
 -(optional) os -- good import to have when dealing with file I/O processes
+
 -(optional) re -- good import to have when need to use regex pattern matching
 
 #OVERVIEW
