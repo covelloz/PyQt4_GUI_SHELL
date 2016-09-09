@@ -40,19 +40,31 @@ The maximum value of the progress bar is set in the theShell class, specifically
 
 For example, if you have process that uses loops, you can nest it as per the below example:
 
-			#--------------------------------------------------------------------------------#
-			#THIS IS A SAMPLE --> N = 3, i.e. progressBar.maxValue(3) in theShell.runReport()
-			#Using test_file.txt (provided with source)
-			
-			print("Testing the program")
-			
-			#print the column names (A, B, C):
-			for col in file_read.columns:
-				self.emit(SIGNAL("updateProgress()"))
-				print(col)
-				time.sleep(2)
-			#--------------------------------------------------------------------------------#
-
+In worker.run():
+	#--------------------------------------------------------------------------------#
+	...
+	#THIS IS A SAMPLE --> N = 3, i.e. progressBar.maxValue(3) in theShell.runReport()
+	#Using test_file.txt (provided with source)
+	
+	print("Testing the program")
+	
+	#print the column names (A, B, C):
+	for col in file_read.columns:
+		self.emit(SIGNAL("updateProgress()"))
+		print(col)
+		time.sleep(2)
+	...
+	#--------------------------------------------------------------------------------#
+	
+In theShell.runReport():
+	#--------------------------------------------------------------------------------#
+	...
+	#Reset the progress bar & set maximum value (default = 1)
+	theShell.msgProgress.progressBar.setValue(0)
+	theShell.msgProgress.progressBar.setMaximum(3)
+	...
+	#--------------------------------------------------------------------------------#
+		
 An error message dialog can be flagged by using try/except within the worker.run() function then emitting the signal "error_message()" on the except cases. It will, of course, hide the error in the python intepreter.
 **Therefore, I do not recommend this until you have properly debugged your program.**
 
