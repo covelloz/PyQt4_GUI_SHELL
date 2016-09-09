@@ -1,25 +1,25 @@
 # PyQt4_GUI_SHELL
--Written by Michael Covello -- lasted updated on 09-09-2016.
+--Written by Michael Covello -- lasted updated on 09-09-2016.
 
--Written using PyQt4 libraries & designed using QtDesigner.
+--Written using PyQt4 libraries & designed using QtDesigner.
 #REQUIREED IMPORTS
--PyQt4 -- requried for GUI components, signals/slots, threads, events, etc.
+--PyQt4 :: requried for GUI components, signals/slots, threads, events, etc.
 
--pandas -- required to read in CSV or TXT.
+--pandas :: required to read in CSV or TXT.
+
 (I use pandas a lot; if you want, you can avoid this import and adapt code to use readLines, csv.reader, etc)
 
--time -- required for SAMPLE code in worker.run()
+--time :: required for SAMPLE code in worker.run()
 
-#OPTIONAL/SUGGESTED IMPORTS
--(optional) numpy -- always a good import to have when dealing with data
+--(optional) numpy :: always a good import to have when dealing with data
 
--(optional) xlsxwriter	-- good import to have if you need to write out an Excel file.
+--(optional) xlsxwriter	:: good import to have if you need to write out an Excel file.
 
--(optional) sys -- good import to have when dealing with file I/O processes
+--(optional) sys :: good import to have when dealing with file I/O processes
 
--(optional) os -- good import to have when dealing with file I/O processes
+--(optional) os :: good import to have when dealing with file I/O processes
 
--(optional) re -- good import to have when need to use regex pattern matching
+--(optional) re :: good import to have when need to use regex pattern matching
 
 #OVERVIEW
 A minimal GUI application that let's you select a CSV or TXT file for processing and select an output directory for an output file.
