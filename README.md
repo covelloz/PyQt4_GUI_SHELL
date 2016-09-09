@@ -11,6 +11,7 @@
 
 --time :: required for SAMPLE code in worker.run()
 
+#OPTIONAL/SUGGESTED IMPORTS
 
 --(optional) numpy :: always a good import to have when dealing with data.
 
