@@ -11,13 +11,14 @@
 
 --time :: required for SAMPLE code in worker.run()
 
---(optional) numpy :: always a good import to have when dealing with data
+
+--(optional) numpy :: always a good import to have when dealing with data.
 
 --(optional) xlsxwriter	:: good import to have if you need to write out an Excel file.
 
---(optional) sys :: good import to have when dealing with file I/O processes
+--(optional) sys :: good import to have when dealing with file I/O processes.
 
---(optional) os :: good import to have when dealing with file I/O processes
+--(optional) os :: good import to have when dealing with file I/O processes.
 
 --(optional) re :: good import to have when need to use regex pattern matching
 
