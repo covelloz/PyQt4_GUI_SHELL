@@ -9,8 +9,8 @@ Great for implementing a heavy data-processing process.
 The process gets threaded and implements a progress bar interface to keep track.
 
 Import data processing packages as necessary:
-  i.e. pandas,numpy,scikit-learn, etc.
-
+  i.e. pandas, numpy, scikit-learn, etc.
+ 
 #HOW TO USE
 The main threaded process is executed by the worker class, specifically in the worker.run() method.
 This is where you should put all the grunt work and heavy processing.
