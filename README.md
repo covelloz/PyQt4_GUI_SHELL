@@ -1,6 +1,6 @@
 # PyQt4_GUI_SHELL
-#Written by Michael Covello -- lasted updated on 09-09-2016#
-#Written using PyQt4 libraries & designed using QtDesigner.
+--Written by Michael Covello -- lasted updated on 09-09-2016
+--Written using PyQt4 libraries & designed using QtDesigner.
 
 #OVERVIEW
 A minimal GUI application that let's you select a CSV or TXT file for processing and select an output directory for an output file.
