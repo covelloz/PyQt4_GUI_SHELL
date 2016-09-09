@@ -60,5 +60,5 @@ An error message dialog can be flagged by using try/except within the worker.run
 
 #IN ACTION
 ![MAIN](https://cloud.githubusercontent.com/assets/20232054/18398156/0f174ec8-7691-11e6-8885-16ee5cbedb93.png)
-
+![TESTING](https://cloud.githubusercontent.com/assets/20232054/18398341/ecb3c32e-7691-11e6-975b-ccffba1522ed.png)
 
