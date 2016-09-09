@@ -1,5 +1,5 @@
 # PyQt4_GUI_SHELL
---Written by Michael Covello -- lasted updated on 09-09-2016
+--Written by Michael Covello -- lasted updated on 09-09-2016.
 --Written using PyQt4 libraries & designed using QtDesigner.
 
 #OVERVIEW
