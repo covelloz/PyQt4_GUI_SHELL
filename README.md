@@ -41,6 +41,7 @@ The maximum value of the progress bar is set in the theShell class, specifically
 For example, if you have process that uses loops, you can nest it as per the below example:
 
 In worker.run():
+
 		#--------------------------------------------------------------------------------#
 		...
 		#THIS IS A SAMPLE --> N = 3, i.e. progressBar.maxValue(3) in theShell.runReport()
@@ -55,8 +56,10 @@ In worker.run():
 			time.sleep(2)
 		...
 		#--------------------------------------------------------------------------------#
+		
 	
 In theShell.runReport():
+
 		#--------------------------------------------------------------------------------#
 		...
 		#Reset the progress bar & set maximum value (default = 1)
