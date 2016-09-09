@@ -2,6 +2,12 @@
 --Written by Michael Covello -- lasted updated on 09-09-2016.
 
 --Written using PyQt4 libraries & designed using QtDesigner.
+
+#OVERVIEW
+A minimal GUI application that let's you select a CSV or TXT file for processing and select an output directory for an output file.
+Great for implementing a heavy data-processing process. 
+The process gets threaded and implements a progress bar interface to keep track.
+
 #REQUIREED IMPORTS
 --PyQt4 :: requried for GUI components, signals/slots, threads, events, etc.
 
@@ -22,11 +28,6 @@
 --(optional) os :: good import to have when dealing with file I/O processes.
 
 --(optional) re :: good import to have when need to use regex pattern matching.
-
-#OVERVIEW
-A minimal GUI application that let's you select a CSV or TXT file for processing and select an output directory for an output file.
-Great for implementing a heavy data-processing process. 
-The process gets threaded and implements a progress bar interface to keep track.
 
 #HOW TO USE
 The main threaded process is executed by the worker class, specifically in the worker.run() method.
