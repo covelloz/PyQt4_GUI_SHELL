@@ -39,7 +39,7 @@ Occasionally emit signal "updateProgress()" between steps within the worker.run(
 The maximum value of the progress bar should coincide with the total number of iterations or stages you wish to complete.
 The maximum value of the progress bar is set in the theShell class, specifically in the theShell.runReport() method.
 
-For example, if you have process that uses loops, you can nest it as per the below example:
+For example, if you have a process that uses loops, you can nest it as per the below example:
 
 In worker.run():
 
