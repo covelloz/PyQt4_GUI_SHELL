@@ -44,18 +44,21 @@ For example, if you have process that uses loops, you can nest it as per the bel
 In worker.run():
 
 		#--------------------------------------------------------------------------------#
-		...
 		#THIS IS A SAMPLE --> N = 3, i.e. progressBar.maxValue(3) in theShell.runReport()
-		#Using test_file.txt (provided with source)
+		#Using test_file.txt
 		
 		print("Testing the program")
 		
-		#print the column names (A, B, C):
+		#output file
+		output_file = open(os.path.normpath(theShell.output_dir + r"\\output_file.txt"), 'w')
+		
+		#print the column names (A, B, C) in the interpreter & write into an output file
 		for col in file_read.columns:
 			self.emit(SIGNAL("updateProgress()"))
 			print(col)
+			output_file.write("%s\n" % col)
 			time.sleep(2)
-		...
+		
 		#--------------------------------------------------------------------------------#
 		
 	
@@ -79,13 +82,20 @@ An error message dialog can be flagged by using try/except within the worker.run
 			
 			#--------------------------------------------------------------------------------#
 			#THIS IS A SAMPLE --> N = 3, i.e. progressBar.maxValue(3) in theShell.runReport()
+			#Using test_file.txt
+			
 			print("Testing the program")
 			
-			#print the column names (A, B, C):
+			#output file
+			output_file = open(os.path.normpath(theShell.output_dir + r"\\output_file.txt"), 'w')
+			
+			#print the column names (A, B, C) in the interpreter & write into an output file
 			for col in file_read.columns:
 				self.emit(SIGNAL("updateProgress()"))
 				print(col)
+				output_file.write("%s\n" % col)
 				time.sleep(2)
+			
 			#--------------------------------------------------------------------------------#
 			
 		except Exception:
