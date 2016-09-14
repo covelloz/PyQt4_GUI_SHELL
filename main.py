@@ -7,7 +7,7 @@
 #Occasionally emit signal updateProgress() between steps within the worker.run() function.
 #Error messages can be flagged with using try/except within the worker.run() function & emitting signal error_message() on the except cases.
 #--------------------------------------------------------------------------------------------------------------------------------------------#
-#Written by Michael Covello -- lasted updated on 09-09-2016#
+#Written by Michael Covello -- lasted updated on 09-14-2016#
 
 
 #Imports needed for GUI shell
