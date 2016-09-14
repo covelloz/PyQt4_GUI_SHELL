@@ -93,8 +93,8 @@ An error message dialog can be flagged by using try/except within the worker.run
 
 #IN ACTION
 Main Window:
-![MAIN]()
+![MAIN](https://cloud.githubusercontent.com/assets/20232054/18531048/ea3cb1f8-7a99-11e6-98ec-fd1f631c0e6d.png)
 
 Running on test_file.txt:
-![TESTING]()
+![TESTING](https://cloud.githubusercontent.com/assets/20232054/18531050/ed7959ca-7a99-11e6-8545-0e113eeeece6.png)
 
