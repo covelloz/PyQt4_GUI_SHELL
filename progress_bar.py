@@ -51,5 +51,5 @@ class Ui_notify(object):
 
     def retranslateUi(self, notify):
         notify.setWindowTitle(_translate("notify", "Please Wait", None))
-        self.label.setText(_translate("notify", "Please wait. The report is currently being generated . . .", None))
+        self.label.setText(_translate("notify", "Please wait. . .", None))
 
