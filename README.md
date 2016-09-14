@@ -12,6 +12,7 @@ The process gets threaded and implements a progress bar interface to keep track.
 --PyQt4 :: requried for GUI components, signals/slots, threads, events, etc.
 
 --pandas :: required to read in CSV or TXT.
+
 (I use pandas a lot; if you want, you can avoid this import and adapt code to use readLines, csv.reader, etc)
 
 --sys :: Dealing with file I/O processes.
