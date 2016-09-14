@@ -12,8 +12,11 @@ The process gets threaded and implements a progress bar interface to keep track.
 --PyQt4 :: requried for GUI components, signals/slots, threads, events, etc.
 
 --pandas :: required to read in CSV or TXT.
-
 (I use pandas a lot; if you want, you can avoid this import and adapt code to use readLines, csv.reader, etc)
+
+--sys :: Dealing with file I/O processes.
+
+--os :: Dealing with file I/O processes.
 
 --time :: required for SAMPLE code in worker.run()
 
@@ -23,9 +26,7 @@ The process gets threaded and implements a progress bar interface to keep track.
 
 --(optional) xlsxwriter	:: good import to have if you need to write out an Excel file.
 
---(optional) sys :: good import to have when dealing with file I/O processes.
 
---(optional) os :: good import to have when dealing with file I/O processes.
 
 --(optional) re :: good import to have when need to use regex pattern matching.
 
