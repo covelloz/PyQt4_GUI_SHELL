@@ -51,6 +51,8 @@ class notify(QtGui.QWidget, progress_bar.Ui_notify):
 #Worker thread		
 class worker(QThread):
 	
+	read_err = False
+	
 	def __init__(self):
 		QThread.__init__(self)
 
@@ -61,16 +63,19 @@ class worker(QThread):
 
 		#Error if input fields are blank
 		if(theShell.file_name == ''):
-			self.emit(SIGNAL("error_message()"))
+			worker.read_err = True
+			return
 			
 		if(theShell.output_dir == ''):
-			self.emit(SIGNAL("error_message()"))
+			worker.read_err = True
+			return
 		
 		#Read in a basic CSV or TXT file -- adjust parameters as needed
 		try:
 			file_read = pd.read_csv(str(theShell.file_name),sep=',')
 		except Exception:
-			self.emit(SIGNAL("error_message()"))
+			worker.read_err = True
+			return
 		
 		#-------------------------------------------------------------------------#
 		'''Updates progress bar.
@@ -105,20 +110,14 @@ class worker(QThread):
 			#--------------------------------------------------------------------------------#
 			
 		except Exception:
-			self.emit(SIGNAL("error_message()"))
+			worker.read_err = True
+			return
 
 #List widget class with drag/drop events enabled
 class ListView(QtGui.QListWidget):
 	
 	def __init__(self, parent):
 		super(self.__class__, self).__init__(parent)
-		
-		self.setGeometry(QtCore.QRect(20, 40, 741, 31))
-		self.setObjectName("listWidget1")
-		self.setAcceptDrops(True)
-		self.addItem('Select "Choose file" or drag/drop file into this box.')
-		self.item(0).setTextColor(QtGui.QColor("gray"))
-		self.item(0).setFont(QtGui.QFont("Segoe UI", italic=True))
 		
 	def dragEnterEvent(self, event):
 		#Only accept drag event if mime data exists
@@ -170,6 +169,14 @@ class theShell(QtGui.QMainWindow, design.Ui_MainWindow):
 		
 		#Create listWidget instance with drag/drop ability
 		self.listWidget1 = ListView(self)
+		
+		#Set properties of listWidget1
+		self.listWidget1.setGeometry(QtCore.QRect(20, 40, 741, 31))
+		self.listWidget1.setObjectName("listWidget1")
+		self.listWidget1.setAcceptDrops(True)
+		self.listWidget1.addItem('Select "Choose file" or drag/drop file into this box.')
+		self.listWidget1.item(0).setTextColor(QtGui.QColor("gray"))
+		self.listWidget1.item(0).setFont(QtGui.QFont("Segoe UI", italic=True))
 		
 		#Connects signals (clicked/dropped) to slots		
 		self.btnFile.clicked.connect(self.selectFile)	
@@ -223,15 +230,21 @@ class theShell(QtGui.QMainWindow, design.Ui_MainWindow):
 		
 		if directory:
 			if self.sender().objectName() == "btnOutput":
-				self.listWidget2.addItem(directory)
+				self.listWidget2.addItem(str(directory))
 				theShell.output_dir = str(directory)
     
 	def done(self):
+		#Flag the ERROR message
+		if worker.read_err == True:
+			worker.read_err = False #reset boolean flag
+			self.error_message()
 		#Flag the COMPLETED message
-		notify.want_to_close = True
-		self.btnRUN.setEnabled(True)
-		theShell.msgProgress.close()
-		theShell.msgComplete.show()
+		else:
+			notify.want_to_close = True
+			self.btnRUN.setEnabled(True)
+			theShell.msgProgress.close()
+			theShell.msgComplete.show()
+			notify.want_to_close = False
 	
 	def error_message(self):
 		#Flag the ERROR message
@@ -239,6 +252,7 @@ class theShell(QtGui.QMainWindow, design.Ui_MainWindow):
 		self.btnRUN.setEnabled(True)
 		theShell.msgProgress.close()
 		theShell.msgError.show()
+		notify.want_to_close = False
 	
 	def updateProgress(self):
 		theShell.msgProgress.progressBar.setValue(self.msgProgress.progressBar.value() + 1)
@@ -246,6 +260,7 @@ class theShell(QtGui.QMainWindow, design.Ui_MainWindow):
 	def closeEvent(self, event):
 		notify.want_to_close = True
 		theShell.msgProgress.close()
+		notify.want_to_close = False
 
 	def runReport(self):
 		
@@ -261,7 +276,6 @@ class theShell(QtGui.QMainWindow, design.Ui_MainWindow):
 		
 		#Connect signals to worker thread
 		theShell.connect(theShell.worker, SIGNAL("finished()"),self.done)
-		theShell.connect(theShell.worker, SIGNAL("error_message()"),self.error_message)
 		theShell.connect(theShell.worker, SIGNAL("updateProgress()"),self.updateProgress)
 		
 		#Begin the worker thread & temporarily disable RUN button
