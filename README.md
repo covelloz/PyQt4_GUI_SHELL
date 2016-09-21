@@ -73,7 +73,7 @@ In theShell.runReport():
 		...
 		#--------------------------------------------------------------------------------#
 		
-An error message dialog can be flagged by using try/except within the worker.run() function then emitting the signal "error_message()" on the except cases. It will, of course, hide the error in the python intepreter.
+An error message dialog can be flagged by using try/except within the worker.run() function with a boolean flag. It will, of course, hide the error in the python intepreter.
 **Therefore, I do not recommend this until you have properly debugged your program.**
 
 		try:
@@ -100,7 +100,8 @@ An error message dialog can be flagged by using try/except within the worker.run
 			#--------------------------------------------------------------------------------#
 			
 		except Exception:
-			self.emit(SIGNAL("error_message()"))
+			worker.read_err = True
+			return
 
 
 #IN ACTION
